@@ -3,7 +3,7 @@ using Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 
-namespace Infrastructure.Repositories;
+namespace Persistence.Repositories;
 
 /// <summary>
 ///  Refactorizacion de codigo para BaseRepository

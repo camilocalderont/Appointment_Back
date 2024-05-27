@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "awi8rWk6+aw+2z/wHHs7sZbWEfQ8ZrOkME2TUk0Bo2U=",
-  "Source": "Appointment_Back",
-  "BasePath": "_content/Appointment_Back",
+  "Hash": "lAVsf4/XP8OL4a3UKcpKodesbBfBaGYqErDYy8hI7Xs=",
+  "Source": "WebApi",
+  "BasePath": "_content/WebApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

@@ -4,7 +4,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{93E6AA3B-6ABB-4453-9DDA-42F34C880C67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{A4E13F2C-77D2-4A62-B68B-E873606012D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Persistence\Persistence.csproj", "{A4E13F2C-77D2-4A62-B68B-E873606012D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCases", "UseCases\UseCases.csproj", "{4894B83C-6F96-4D2D-B0BA-9CE08677D5EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adapters", "Adapters\Adapters.csproj", "{7482A11E-A570-4D16-8706-C8A9FB051770}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +28,13 @@ Global
 		{A4E13F2C-77D2-4A62-B68B-E873606012D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4E13F2C-77D2-4A62-B68B-E873606012D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4E13F2C-77D2-4A62-B68B-E873606012D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4894B83C-6F96-4D2D-B0BA-9CE08677D5EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4894B83C-6F96-4D2D-B0BA-9CE08677D5EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4894B83C-6F96-4D2D-B0BA-9CE08677D5EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4894B83C-6F96-4D2D-B0BA-9CE08677D5EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7482A11E-A570-4D16-8706-C8A9FB051770}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7482A11E-A570-4D16-8706-C8A9FB051770}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7482A11E-A570-4D16-8706-C8A9FB051770}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7482A11E-A570-4D16-8706-C8A9FB051770}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
