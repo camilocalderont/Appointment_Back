@@ -12,5 +12,7 @@ public class Client
     public string? VcSecondLastName {get; set; }
     public string VcEmail {get; set; }
     public string VcPassword {get; set; }
+    
+    public Boolean BIsActived {get; set; }
 
 }

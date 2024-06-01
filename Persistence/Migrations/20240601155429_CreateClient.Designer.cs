@@ -11,7 +11,7 @@ using Persistence.Context;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240527044746_CreateClient")]
+    [Migration("20240601155429_CreateClient")]
     partial class CreateClient
     {
         /// <inheritdoc />

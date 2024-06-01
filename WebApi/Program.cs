@@ -1,6 +1,11 @@
 using System.Text.Json.Serialization;
+using Adapters.Mappers;
+using Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Context;
+using Persistence.Repositories;
+using UseCases.Cases.Appointment;
+using AutoMapper;
 
 DotNetEnv.Env.Load();
 var builder = WebApplication.CreateBuilder(args);
@@ -31,6 +36,20 @@ builder.Services.AddDbContextFactory<ApplicationDbContext>(options =>
     }
 
 }, ServiceLifetime.Transient);
+
+// Register AutoMapper
+var mapperConfig = new MapperConfiguration(mc =>
+{
+    mc.AddProfile(new AutoMapperProfile()); // Añade tu perfil de mapeo
+});
+
+IMapper mapper = mapperConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
+
+builder.Services.AddScoped<DbContext, ApplicationDbContext>();
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped(typeof(ICustomMapper<,>), typeof(AutoMapperAdapter<,>));
+builder.Services.AddScoped<CreateClientUseCase>();
 
 var app = builder.Build();
 

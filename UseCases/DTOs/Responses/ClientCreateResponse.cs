@@ -12,6 +12,5 @@ public class ClientCreateResponse
     public string VcFirstLastName {get; set; }
     public string? VcSecondLastName {get; set; }
     public string VcEmail {get; set; }
-    public string VcPassword {get; set; }
 }
 #pragma warning restore CS8618 // Habilitar warning CS8618

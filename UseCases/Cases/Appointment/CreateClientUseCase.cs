@@ -26,6 +26,7 @@ public class CreateClientUseCase
     {
         Client client = _clientRequestMapper.MapToEntity(request);
         await  _clientRepository.AddAsync(client);
+        await _clientRepository.SaveChangesAsync();
         ClientCreateResponse clientResponse = _clientResponseMapper.MapToDto(client); 
         return clientResponse;
     }
