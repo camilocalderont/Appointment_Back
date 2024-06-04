@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../build/Appointment_Back.props" />
-</Project>
