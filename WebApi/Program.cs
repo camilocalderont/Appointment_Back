@@ -1,11 +1,13 @@
 using System.Text.Json.Serialization;
 using Adapters.Mappers;
+using Appointment_Back.Routing;
 using Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Context;
 using Persistence.Repositories;
 using UseCases.Cases.Appointment;
 using AutoMapper;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 
 DotNetEnv.Env.Load();
 var builder = WebApplication.CreateBuilder(args);
@@ -13,11 +15,14 @@ var builder = WebApplication.CreateBuilder(args);
 string connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
 Console.WriteLine(connectionString);
 var myAllowSpecificOrigins = "_myAllowSpecificOrigins";
-builder.Services.AddControllers().AddJsonOptions(opt =>
+// Configurar servicios
+builder.Services.AddControllers(options =>
+{
+    options.Conventions.Add(new RouteTokenTransformerConvention(new SlugifyParameterTransformer()));
+}).AddJsonOptions(opt =>
 {
     opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
 });
-builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 bool devEnv = builder.Environment.IsDevelopment();
@@ -50,6 +55,8 @@ builder.Services.AddScoped<DbContext, ApplicationDbContext>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped(typeof(ICustomMapper<,>), typeof(AutoMapperAdapter<,>));
 builder.Services.AddScoped<CreateClientUseCase>();
+builder.Services.AddScoped<SearchClientByEmailUseCase>();
+builder.Services.AddScoped<SearchClientByPhoneUseCase>();
 
 var app = builder.Build();
 
@@ -66,7 +73,7 @@ using (var scope = app.Services.CreateScope())
     //context.EnsureSeeded();
 }
 
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => "Hello Boki!");
 
 app.UseHttpsRedirection();
 app.UseCors(myAllowSpecificOrigins);
