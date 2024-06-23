@@ -31,13 +31,13 @@ builder.Services.AddDbContextFactory<ApplicationDbContext>(options =>
 {
     if (devEnv)
     {
-        options.UseSqlServer(connectionString)
+        options.UseNpgsql(connectionString)
             .EnableSensitiveDataLogging(true)
             .EnableDetailedErrors(true);
     }
     else
     {
-        options.UseSqlServer(connectionString);
+        options.UseNpgsql(connectionString);
     }
 
 }, ServiceLifetime.Transient);

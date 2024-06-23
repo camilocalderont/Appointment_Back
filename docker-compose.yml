@@ -1,25 +1,26 @@
-version:  "3"
+version: "3"
 
 services:
-  mssql_admin:
-    image: mcr.microsoft.com/azure-sql-edge:latest
-    cap_add: [ 'SYS_PTRACE' ]
+  postgres_db:
+    image: postgres:14.5
     environment:
-      - "ACCEPT_EULA=1"
-      - "MSSQL_SA_PASSWORD=SU2orange!"
+      - POSTGRES_DB=appointment
+      - POSTGRES_USER=sa
+      - POSTGRES_PASSWORD=SU2orange!
     ports:
-      - "3341:1433"
-    hostname: mssql_admin
+      - "5432:5432"
+    hostname: postgres_db
     volumes:
-      - "mssql-azuresql-edge-data:/var/opt/mssql"
+      - "postgres-data:/var/lib/postgresql/data"
 
   bokiback:
     build: .
     environment:
-      - "CONNECTION_STRING=Data Source=mssql_admin,1433;Initial Catalog=appointment;User Id=sa;Password=SU2orange!;Encrypt=False;TrustServerCertificate=True"   
+      - "CONNECTION_STRING=Host=postgres_db;Database=appointment;Username=sa;Password=SU2orange!"   
     ports:
       - "9292:8080"    
     depends_on:
-      - mssql_admin         
+      - postgres_db         
+
 volumes:
-    mssql-azuresql-edge-data:
+  postgres-data:
