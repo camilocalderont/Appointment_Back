@@ -57,6 +57,7 @@ builder.Services.AddScoped(typeof(ICustomMapper<,>), typeof(AutoMapperAdapter<,>
 builder.Services.AddScoped<CreateClientUseCase>();
 builder.Services.AddScoped<SearchClientByEmailUseCase>();
 builder.Services.AddScoped<SearchClientByPhoneUseCase>();
+builder.Services.AddScoped<CreateCompanyUseCase>();
 
 var app = builder.Build();
 

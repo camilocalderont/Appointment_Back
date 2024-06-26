@@ -12,11 +12,13 @@ public class ApplicationDbContext:DbContext
     }
     
     public DbSet<Client> Client { get; set; }
+    public DbSet<Client> Company { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
         //Appointments Fluent Config
         new ClientConfig(modelBuilder.Entity<Client>()); 
+        new CompanyConfig(modelBuilder.Entity<Company>()); 
     }
 }
