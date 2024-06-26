@@ -33,8 +33,24 @@ public class ClientsController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<ClientCreateResponse>> create(ClientCreateRequest client)
     {
-        var response = await _createClientUseCase.Run(client);
-        return Ok(response);
+        try
+        {
+            var response = await _createClientUseCase.Run(client);
+            return Ok(new
+            {
+                Success = true,
+                Message = "Company created successfully",
+                Data = response
+            });
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new
+            {
+                Success = false,
+                Message = $"Error creating the client: {ex.Message}"
+            });
+        }
     }
     
     /// <summary>
